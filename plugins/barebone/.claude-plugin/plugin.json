@@ -1,7 +1,7 @@
 {
   "name": "barebone",
-  "version": "0.1.0",
-  "description": "Andreas Debel's learning-repo simplicity toolkit: /barebone-plan, /barebone-audit and /barebone-claude-md.",
+  "version": "0.2.0",
+  "description": "Andreas Debel's learning-repo simplicity toolkit: /barebone-plan, /barebone-audit, /barebone-claude-md and /create-readme.",
   "author": {
     "name": "Andreas Debel"
   },

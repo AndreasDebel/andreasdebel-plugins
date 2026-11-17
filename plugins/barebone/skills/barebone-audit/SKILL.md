@@ -12,8 +12,10 @@ small, `/barebone-claude-md` makes that a standing rule, and this skill deals wi
 that already exists. It reads the whole repository, finds where readability was traded for
 robustness or generality, and writes refactor tickets.
 
-**Read `${CLAUDE_PLUGIN_ROOT}/principles/BAREBONE-PRINCIPLES.md` first.** Those seven
-principles are the audit criteria; this file only describes the procedure.
+**Read `${CLAUDE_PLUGIN_ROOT}/principles/BAREBONE-PRINCIPLES.md` first.** Principles 1–7
+are the audit criteria; this file only describes the procedure. Principle 8 (a README per
+runnable part) is checked too, but it adds rather than removes, so it never becomes a
+refactor ticket — see Step 5.
 
 Two boundaries that define the skill:
 
@@ -46,7 +48,7 @@ the assignment.
 
 ## Step 2 — Fan out the reading
 
-Repositories are wide and the seven principles need whole-file context, so split by natural
+Repositories are wide and principles 1–7 need whole-file context, so split by natural
 unit — one subagent per project, module, or top-level source directory. Reading a slice in
 full is what lets a subagent see that an interface has one implementation, or that a DTO is
 mapped in exactly one place; a keyword search across the tree cannot see either.
@@ -60,6 +62,8 @@ Two things worth telling every subagent, because they're the common failure mode
 - **Count the callers before calling something unnecessary.** "One implementation" and
   "mapped in one place" are claims about the whole repo, so they need a check outside the
   slice. Flag as uncertain rather than guessing.
+- **List the runnable parts in the slice** and whether each has a `README.md` with working
+  run and check commands (principle 8). Just the list — no finding entry.
 - **Report what's already fine.** A slice that comes back empty is real information, and
   it's what keeps Step 4 from padding tickets with marginal work.
 
@@ -121,6 +125,9 @@ Summarise in a handful of lines: what you read, the tickets written with their p
 rough line savings, and — separately — **what you deliberately left alone and why**. That
 last part is the audit's most useful output for a student. "These four files are already as
 simple as the problem allows" tells them where to stop looking.
+
+List every runnable part missing a usable `README.md` (principle 8), and offer to run
+`/create-readme` on each. Don't write them during the audit — no edits is the boundary.
 
 If a finding would delete something the repo demonstrably teaches, don't bury it in a
 ticket: raise it here as a question. The user decides whether the lesson or the line count

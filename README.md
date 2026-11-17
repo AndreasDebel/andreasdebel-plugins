@@ -2,10 +2,10 @@
 
 Personal Claude Code plugin marketplace.
 
-| Plugin         | Skills                                          |
-|----------------|-------------------------------------------------|
-| `base-toolkit` | `/easy` (`/e`), `/simple` (`/s`), `/teacher`, `/socrates` |
-| `barebone`     | `/barebone-plan`, `/barebone-audit`, `/barebone-claude-md` |
+| Plugin         | Skills                                                                       |
+|----------------|------------------------------------------------------------------------------|
+| `base-toolkit` | `/easy` (`/e`), `/simple` (`/s`), `/teacher`, `/socrates`                    |
+| `barebone`     | `/barebone-plan`, `/barebone-audit`, `/barebone-claude-md`, `/create-readme` |
 
 ## barebone
 
@@ -15,7 +15,7 @@ and defends against failures that never happen. Correct in production, unreadabl
 repo whose only job is that a student can follow it.
 
 Everything the three skills share lives in `plugins/barebone/principles/` and is referenced,
-never restated — `BAREBONE-PRINCIPLES.md` (the six rules, and the block installed into a
+never restated — `BAREBONE-PRINCIPLES.md` (the eight rules, and the block installed into a
 repo's `CLAUDE.md`), `TICKET-TEMPLATE.md` (the shape both ticket-writing skills emit), and
 `LEARNING-REPO-CHECK.md` (the guard on the two skills that act on an existing repo).
 
@@ -29,3 +29,6 @@ They enforce the same rules at three different points, so the three can be compa
   `docs/tickets/<name>-refactor.md`. Returning no tickets is a valid result.
 - **`/barebone-claude-md`** — always on. Idempotently installs the principles as a
   `## Barebone principles` section in the repo's `CLAUDE.md`.
+- **`/create-readme`** — principle 8 on demand. Writes a `README.md` for one runnable
+  folder: the CLI commands to start it and to check by hand that it works, each one run
+  first and shown with its real output.

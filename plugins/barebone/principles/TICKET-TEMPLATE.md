@@ -45,6 +45,10 @@ One step per file. For a refactor, order the steps so the repo builds at the end
 size you expect when it's obviously small ("~10 lines") — that number is what a reader
 checks the result against.
 
+If the ticket adds a runnable part, or changes how one starts or what it answers, include a
+step for that part's `README.md` (principle 8) — the run command and the manual check from
+`Verification` belong there, so they outlive the ticket.
+
 ## Step 2 — `path/to/next/file.ext`
 
 ...

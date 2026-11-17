@@ -49,6 +49,14 @@ production instincts are the thing making this code unreadable, so set them down
    that line with an ALL CAPS `// LOOK HERE!` comment naming what's on the other side (which
    file, which service). A student skimming a file should be able to spot, at a glance,
    every point where "what happens next" stops being answerable from what's on screen.
+8. **Every runnable part says how to run and check it.** Each folder a student can start on
+   its own — a project, a service, a client, the repo root if it has one entry point — gets
+   a `README.md` with the exact CLI commands to start it and to check by hand that it works:
+   the command to type, and the output to expect. Not every folder; a folder of plain
+   source files that nothing starts directly doesn't need one. Commands must be copy-paste
+   runnable and actually tried, and when a change alters how the part starts or what it
+   answers, update its README in the same change. Reading code only teaches as far as the
+   student can run it and watch it do the thing.
 
 **Line count is not the metric.** Cutting a layer removes lines; expanding a clever
 one-liner into steps a student can trace adds them. Both are wins here. What's being
